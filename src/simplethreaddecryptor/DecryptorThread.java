@@ -36,12 +36,12 @@ public class DecryptorThread implements Runnable {
 
         String temp = "";
         for (int i = 0; i < aux.length(); i++) {
-            temp += (char) (aux.charAt(i) ^ key.charAt(x));
+            temp += (int) (Math.pow(aux.charAt(i), i + 1));
             x++;
 
             originalSum += (char) temp.charAt(i);
-            // Maior que 3, pois a chave tem 4 caracteres
-            if (x > 3) {
+            // Maior que 6, pois a chave tem 7 caracteres
+            if (x > 6) {
                 x = 0;
             }
         }
