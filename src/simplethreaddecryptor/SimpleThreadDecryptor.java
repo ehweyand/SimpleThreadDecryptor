@@ -15,7 +15,7 @@ public class SimpleThreadDecryptor {
     static final int START_CHAR_CODE = 42;
     static final int END_CHAR_CODE = 122;
     static final String REGEXP_WORDS = "[a-zA-Z ]+";
-    static final String REGEXP_WORDS_NUMBERS = "";
+    static final String REGEXP_WORDS_NUMBERS = "[a-zA-Z 0-9]+";
 
     //Mensagem criptografada: {55,65,21,80,21,0,67,92,25,19,17,84,3,65,7,84,86,5,12,67,86,5,6,17,20,0,17,67,31,6,2}
     //Checksum da mensagem original: 2789
