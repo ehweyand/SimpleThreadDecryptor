@@ -7,6 +7,7 @@ package simplethreaddecryptor;
 
 import static simplethreaddecryptor.SimpleThreadDecryptor.END_CHAR_CODE;
 import static simplethreaddecryptor.SimpleThreadDecryptor.REGEXP_WORDS;
+import static simplethreaddecryptor.SimpleThreadDecryptor.START_CHAR_CODE;
 
 /**
  *
@@ -26,9 +27,9 @@ public class Decipher implements Runnable{
     @Override
     public void run() {
         for (int i = sc ; i < END_CHAR_CODE; i++) {
-            for (int j = sc; j < END_CHAR_CODE; j++) {
-                for (int k = sc; k < END_CHAR_CODE; k++) {
-                    for (int l = sc; l < END_CHAR_CODE; l++) {
+            for (int j = START_CHAR_CODE; j < END_CHAR_CODE; j++) {
+                for (int k = START_CHAR_CODE; k < END_CHAR_CODE; k++) {
+                    for (int l = START_CHAR_CODE; l < END_CHAR_CODE; l++) {
                         tryToDecryptMsg("" + (char) i + (char) j + (char) k + (char) l, encrypted, expectedCheckSum);
                     }
                 }
