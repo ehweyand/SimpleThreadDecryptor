@@ -32,13 +32,12 @@ public class SimpleThreadDecryptor {
     }
 
     private static void tryToDecryptMsg(String key, int[] msg, int checkSum) {
-        String aux = convertToString(msg);
         int x = 0;
         int originalSum = 0;
 
         String temp = "";
-        for (int i = 0; i < aux.length(); i++) {
-            temp += (char) (aux.charAt(i) ^ key.charAt(x));
+        for (int i = 0; i < msg.length; i++) {
+            temp += (char) (msg[i] ^ key.charAt(x));
             x++;
 
             originalSum += (char) temp.charAt(i);
@@ -55,18 +54,10 @@ public class SimpleThreadDecryptor {
         }
 
     }
-
-    public static String convertToString(int[] message) {
-        String s = "";
-        for (int i : message) {
-            s += Character.toString((char) i);
-        }
-
-        return s;
-    }
+    
     // Start from character 118 to reduce processing
     private static void decryptFourWordsKey(int[] encrypted, int expectedCheckSum) {
-        for (int i = END_CHAR_CODE - 4 ; i < END_CHAR_CODE; i++) {
+        for (int i = START_CHAR_CODE; i < END_CHAR_CODE; i++) {
             for (int j = START_CHAR_CODE; j < END_CHAR_CODE; j++) {
                 for (int k = START_CHAR_CODE; k < END_CHAR_CODE; k++) {
                     for (int l = START_CHAR_CODE; l < END_CHAR_CODE; l++) {
